@@ -13,7 +13,7 @@
         <CommandBinding Command="ApplicationCommands.Save" Executed="SaveCommand_Executed"/>
     </Window.CommandBindings>
     <DockPanel>
-        <ToolBarTray Height="40" Background="#ffe3ecf6" VerticalAlignment="Top">
+        <ToolBarTray Height="40" Background="#ffe3ecf6" DockPanel.Dock="Top" HorizontalAlignment="Left">
             <ToolBar Height="40" Width="200">
                 <Button x:Name="newButton" Command="ApplicationCommands.New" Width="35" Height="35">
                     <Image Width="30" Height="28" Source="/new.png" />
@@ -38,17 +38,14 @@
                 <ToggleButton x:Name="underlineButton" Command="EditingCommands.ToggleUnderline" Height="35" Width="35">
                     <Image Width="30" Height="30" Source="/underline.png" />
                 </ToggleButton>
-                <xctk:ColorPicker x:Name="fontColorPicker" Width="100" Height="35" VerticalAlignment="Center" HorizontalAlignment="Left" DisplayColorAndName="True" />
-                <ComboBox x:Name="fontFamilyComboBox" Height="35" Width="100" VerticalAlignment="Center" HorizontalAlignment="Left" Background="#FFFFE7E7"/>
-                <ComboBox x:Name="fontSizeComboBox" Height="35" Width="50" VerticalAlignment="Center" HorizontalAlignment="Left" Background="#FFFFE3C1"/>
+                <xctk:ColorPicker x:Name="fontColorPicker" Width="100" Height="35" VerticalAlignment="Center" HorizontalAlignment="Left" DisplayColorAndName="True" SelectedColorChanged="fontColorPicker_SelectedColorChanged" />
+                <ComboBox x:Name="fontFamilyComboBox" Height="35" Width="100" VerticalAlignment="Center" HorizontalAlignment="Left" Background="#FFFFE7E7" SelectionChanged="fontFamilyComboBox_SelectionChanged"/>
+                <ComboBox x:Name="fontSizeComboBox" Height="35" Width="50" VerticalAlignment="Center" HorizontalAlignment="Left" Background="#FFFFE3C1" SelectionChanged="fontSizeComboBox_SelectionChanged"/>
             </ToolBar>
         </ToolBarTray>
-        <RichTextBox x:Name="rtbEditor" Background="#FFE8F3FF" SelectionChanged="rtbEditor_SelectionChanged" >
+        <RichTextBox x:Name="rtbEditor" Background="#FFE8F3FF" SelectionChanged="rtbEditor_SelectionChanged" DockPanel.Dock="Top" TextChanged="rtbEditor_TextChanged_1" Height="418" >
             <FlowDocument/>
         </RichTextBox>
-
-
-
 
     </DockPanel>
 </Window>
