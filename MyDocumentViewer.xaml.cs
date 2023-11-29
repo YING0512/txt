@@ -1,17 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Controls.Primitives;
-using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace txt
 {
@@ -20,9 +13,20 @@ namespace txt
     /// </summary>
     public partial class MyDocumentViewer : Window
     {
+        Color fontColor = Colors.Black;
         public MyDocumentViewer()
         {
             InitializeComponent();
+            fontColorPicker.SelectedColor = fontColor;
+            foreach (FontFamily fontFamily in Fonts.SystemFontFamilies)
+            {
+                fontFamilyComboBox.Items.Add(fontFamily.Source );
+            }
+
+            fontFamilyComboBox.SelectedIndex = 8;
+
+            fontSizeComboBox.ItemsSource = new List<Double>() { 8, 9, 10, 12, 20, 24, 32, 40, 50, 60, 80, 100 };
+            fontSizeComboBox.SelectedIndex = 3;
         }
 
         private void NewCommand_Executed(object sender, ExecutedRoutedEventArgs e)
@@ -50,6 +54,11 @@ namespace txt
 
             property = rtbEditor.Selection.GetPropertyValue(Inline.FontFamilyProperty);
             underlineButton.IsChecked = (property != DependencyProperty.UnsetValue && property == TextDecorations.Underline);
+        }
+
+        private void rtbEditor_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }

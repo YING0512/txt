@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         xmlns:local="clr-namespace:txt"
         mc:Ignorable="d"
         Title="MyDocumentViewer" Height="450" Width="800">
@@ -12,7 +13,7 @@
         <CommandBinding Command="ApplicationCommands.Save" Executed="SaveCommand_Executed"/>
     </Window.CommandBindings>
     <DockPanel>
-        <ToolBarTray Height="40"  VerticalAlignment="Top" Background="#ffe3ecf6">
+        <ToolBarTray Height="40" Background="#ffe3ecf6" VerticalAlignment="Top">
             <ToolBar Height="40" Width="200">
                 <Button x:Name="newButton" Command="ApplicationCommands.New" Width="35" Height="35">
                     <Image Width="30" Height="28" Source="/new.png" />
@@ -27,7 +28,7 @@
                     <Image Width="30" Height="30" Source="/trashcan.png" />
                 </Button>
             </ToolBar>
-            <ToolBar>
+            <ToolBar Width="500">
                 <ToggleButton x:Name="boldButton" Command="EditingCommands.ToggleBold" Height="35" Width="35">
                     <Image Width="30" Height="30" Source="/bold.png" />
                 </ToggleButton>
@@ -37,6 +38,9 @@
                 <ToggleButton x:Name="underlineButton" Command="EditingCommands.ToggleUnderline" Height="35" Width="35">
                     <Image Width="30" Height="30" Source="/underline.png" />
                 </ToggleButton>
+                <xctk:ColorPicker x:Name="fontColorPicker" Width="100" Height="35" VerticalAlignment="Center" HorizontalAlignment="Left" DisplayColorAndName="True" />
+                <ComboBox x:Name="fontFamilyComboBox" Height="35" Width="100" VerticalAlignment="Center" HorizontalAlignment="Left" Background="#FFFFE7E7"/>
+                <ComboBox x:Name="fontSizeComboBox" Height="35" Width="50" VerticalAlignment="Center" HorizontalAlignment="Left" Background="#FFFFE3C1"/>
             </ToolBar>
         </ToolBarTray>
         <RichTextBox x:Name="rtbEditor" Background="#FFE8F3FF" SelectionChanged="rtbEditor_SelectionChanged" >
