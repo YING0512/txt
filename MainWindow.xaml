@@ -5,8 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:txt"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="2023小作家" Height="450" Width="800">
     <Grid>
+        <Button x:Name="openButton" Content="開啟新文件" HorizontalAlignment="Left" Margin="80,60,0,0" VerticalAlignment="Top" FontSize="20" Height="75" Width="140" Click="openButton_Click"/>
 
     </Grid>
 </Window>

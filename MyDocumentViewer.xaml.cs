@@ -10,26 +10,24 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace txt
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// MyDocumentViewer.xaml 的互動邏輯
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MyDocumentViewer : Window
     {
-        public MainWindow()
+        public MyDocumentViewer()
         {
             InitializeComponent();
         }
 
-        private void openButton_Click(object sender, RoutedEventArgs e)
+        private void NewCommand_Executed(object sender, ExecutedRoutedEventArgs e)
         {
             MyDocumentViewer myDocumentViewer = new MyDocumentViewer();
-            myDocumentViewer.ShowDialog();
-
+            myDocumentViewer.Show();
         }
     }
 }
